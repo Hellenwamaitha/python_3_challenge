@@ -44,6 +44,9 @@ class Customer(Base):
         favorite_review = max(self.reviews, key=lambda review: review.star_rating)
         return favorite_review.restaurant
 
+    def restaurants(self):
+        return [review.restaurant for review in self.reviews]
+
 class Review(Base):
     __tablename__ = 'reviews'
 
